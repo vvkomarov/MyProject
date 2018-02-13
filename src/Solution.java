@@ -25,7 +25,7 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        Account [] acc = new Account[5];
+        Account[] acc = new Account[6];
         acc[0] = new Account();
         acc[0].setName("Василий");
         acc[0].setMoney(10000f);
@@ -45,6 +45,10 @@ public class Solution {
         acc[4] = new Account();
         acc[4].setName("Антон");
         acc[4].setMoney(15f);
+
+        acc[5] = new Account();
+        acc[5].setName("Vladimir");
+        acc[5].setMoney(150000f);
 
         for (int z = 0; z < acc.length;z++) {
             float currentmoney = acc[z].getMoney();
