@@ -1,6 +1,10 @@
 public class Solution {
     /*
+<<<<<<< HEAD
     Немного массивов
+=======
+    some test
+>>>>>>> Initial commit
      */
 
     public static final class Account {
@@ -25,7 +29,11 @@ public class Solution {
     }
 
     public static void main(String[] args) {
+<<<<<<< HEAD
         Account [] acc = new Account[5];
+=======
+        Account [] acc = new Account[6];
+>>>>>>> Initial commit
         acc[0] = new Account();
         acc[0].setName("Василий");
         acc[0].setMoney(10000f);
@@ -46,6 +54,13 @@ public class Solution {
         acc[4].setName("Антон");
         acc[4].setMoney(15f);
 
+<<<<<<< HEAD
+=======
+        acc[5] = new Account();
+        acc[5].setName("Vladimir");
+        acc[5].setMoney(20000f);
+
+>>>>>>> Initial commit
         for (int z = 0; z < acc.length;z++) {
             float currentmoney = acc[z].getMoney();
             currentmoney = currentmoney + currentmoney*0.1f;
