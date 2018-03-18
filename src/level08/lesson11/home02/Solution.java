@@ -54,9 +54,7 @@ public class Solution {
 
     public static Set removeCats(Set<Object> pets) {
         ArrayList<Object> pet = new ArrayList<>();
-        for (Object k : pets) {
-            pet.add(k);
-        }
+        pet.addAll(pets);
         for (int j = 0; j < pet.size(); ) {
             if (pet.get(j) instanceof Dog) {
                 pet.remove(j);
