@@ -14,7 +14,7 @@ public class Solution {
     public static void main(String[] args) {
         try {
             method1();
-        } catch (Exception e) {
+        } catch (ArithmeticException e) {
             System.out.println(e + " " + e.getMessage());
         }
     }
