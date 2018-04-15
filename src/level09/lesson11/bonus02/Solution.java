@@ -12,30 +12,39 @@ package level09.lesson11.bonus02;
 
 */
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class Solution {
 
     public static void main(String[] args) throws Exception {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        boolean fileexists = false;
 
-        String sourceFileName = reader.readLine();
-        String destinationFileName = reader.readLine();
+        while (fileexists == false) {
+            String sourceFileName = reader.readLine();
+            File file = new File(sourceFileName);
 
-        FileInputStream fileInputStream = new FileInputStream(sourceFileName);
-        FileOutputStream fileOutputStream = new FileOutputStream(destinationFileName);
+            if (file.exists()) {
+                System.out.println("Укажите место для копирования файла");
+                String destinationFileName = reader.readLine();
+                FileInputStream fileInputStream = new FileInputStream(sourceFileName);
+                FileOutputStream fileOutputStream = new FileOutputStream(destinationFileName);
 
-        while (fileInputStream.available() > 0) {
-            int data = fileInputStream.read();
-            fileOutputStream.write(data);
+                int count = 0;
+                while (fileInputStream.available() > 0) {
+                    fileOutputStream.write(fileInputStream.read());
+                    count++;
+                }
+
+                System.out.println("Скопированно " + count + " байт");
+                fileInputStream.close();
+                fileOutputStream.close();
+                fileexists = true;
+            } else {
+                System.out.println("Файл не существует");
+                System.out.println("Укажите имя файла: ");
+            }
         }
-        fileInputStream.close();
-        fileOutputStream.close();
-
     }
-
 }
