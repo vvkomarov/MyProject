@@ -9,12 +9,12 @@ import java.util.Collections;
 
 public class REF_UBPandNUBP {
     public static void main(String[] args) throws IOException {
-        String sourcetwo = "C:/Users/vkomarov/Downloads/2.xml";
+        String sourcetwo = "C:/Users/vkomarov/Downloads/2.xml";//Заголовок пакета
         File source = new File(sourcetwo);
-        File sourceTwo = new File("C:/Users/vkomarov/Downloads/2.xml");
+        File sourceTwo = new File("C:/Users/vkomarov/Downloads/2.xml");//продолжение пакета
 
         for (int j = 1000; j < 1800; j++) {
-            String destinationFileName = "C:/Users/vkomarov/Downloads/Пакет/REF_UBPandNUBP_inc_20180507112846_11" + j + ".xml";
+            String destinationFileName = "C:/Users/vkomarov/Downloads/Пакет/REF_UBPandNUBP_inc_20180507112846_11" + j + ".xml";//Место сохранения файлов
             File dest = new File(destinationFileName);
             copyFileUsingJava7Files(source, dest);
             String a = "\n" + "<RecordNum>500000000320G" + j + "000</RecordNum>";
