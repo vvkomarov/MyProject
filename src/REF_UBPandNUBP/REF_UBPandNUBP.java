@@ -1,6 +1,7 @@
 package REF_UBPandNUBP;
 
 import java.io.*;
+import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
@@ -13,7 +14,7 @@ public class REF_UBPandNUBP {
         String sourcetwo = "C:/Users/vkomarov/Downloads/2.xml";
         int Count = 0;
 
-        for (int j = 1000; j < 1001; j++) {
+        for (int j = 1000; j < 1005; j++) {
             String destinationFileName = "C:/Users/vkomarov/Downloads/Пакет/REF_UBPandNUBP_inc_20180507112846_11" + j + ".xml";
             File dest = new File(destinationFileName);
             copyFileUsingJava7Files(source, dest);
@@ -41,7 +42,13 @@ public class REF_UBPandNUBP {
 
 
     private static void copyFileUsingJava7Files(File source, File dest) throws IOException {
-        Files.copy(source.toPath(), dest.toPath());
+        try {
+            Files.copy(source.toPath(), dest.toPath());
+        } catch (FileAlreadyExistsException e) {
+            System.out.println("Файл " + dest.getCanonicalPath() + " перезаписан.");
+            Files.delete(dest.toPath());
+            Files.copy(source.toPath(), dest.toPath());
+        }
     }
 
     private static void writeFileUsingJava7Files(String source, String dest) throws IOException {
