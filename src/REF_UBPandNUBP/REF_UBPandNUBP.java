@@ -2,7 +2,6 @@ package REF_UBPandNUBP;
 
 import java.io.*;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.Collections;
@@ -22,7 +21,7 @@ public class REF_UBPandNUBP {
             Files.write(Paths.get(destinationFileName), Collections.singleton(a), StandardOpenOption.APPEND);
             String c = "<ControlNum>0</ControlNum>";
             Files.write(Paths.get(destinationFileName), Collections.singleton(c), StandardOpenOption.APPEND);
-            String d = "<RegistryCode>G9911</RegistryCode>";
+            String d = "<RegistryCode>G" + j + "</RegistryCode>";
             Files.write(Paths.get(destinationFileName), Collections.singleton(d), StandardOpenOption.APPEND);
             String f = "<OrgCode>502G" + j + "</OrgCode>";
             Files.write(Paths.get(destinationFileName), Collections.singleton(f), StandardOpenOption.APPEND);
