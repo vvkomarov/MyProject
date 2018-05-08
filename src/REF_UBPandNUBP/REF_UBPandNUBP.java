@@ -2,6 +2,7 @@ package REF_UBPandNUBP;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.Collections;
@@ -9,12 +10,12 @@ import java.util.Collections;
 
 public class REF_UBPandNUBP {
     public static void main(String[] args) throws IOException {
-        String sourcetwo = "C:/Users/vkomarov/Downloads/2.xml";//Заголовок пакета
-        File source = new File(sourcetwo);
-        File sourceTwo = new File("C:/Users/vkomarov/Downloads/2.xml");//продолжение пакета
+        File source = new File("C:/Users/vkomarov/Downloads/1.xml");
+        String sourcetwo = "C:/Users/vkomarov/Downloads/2.xml";
+        int Count = 0;
 
-        for (int j = 1000; j < 1800; j++) {
-            String destinationFileName = "C:/Users/vkomarov/Downloads/Пакет/REF_UBPandNUBP_inc_20180507112846_11" + j + ".xml";//Место сохранения файлов
+        for (int j = 1000; j < 1001; j++) {
+            String destinationFileName = "C:/Users/vkomarov/Downloads/Пакет/REF_UBPandNUBP_inc_20180507112846_11" + j + ".xml";
             File dest = new File(destinationFileName);
             copyFileUsingJava7Files(source, dest);
             String a = "\n" + "<RecordNum>500000000320G" + j + "000</RecordNum>";
@@ -34,6 +35,8 @@ public class REF_UBPandNUBP {
             String k = "<OrgKPP>81900" + j + "</OrgKPP>";
             Files.write(Paths.get(destinationFileName), Collections.singleton(k), StandardOpenOption.APPEND);
             writeFileUsingJava7Files(sourcetwo, destinationFileName);
+            Count++;
+            System.out.println("Сгенерировано " + Count + " файлов.");
         }
     }
 
@@ -43,7 +46,7 @@ public class REF_UBPandNUBP {
     }
 
     private static void writeFileUsingJava7Files(String source, String dest) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(source), "utf-8"));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(source), "UTF-8"));
         String strLine;
         while ((strLine = reader.readLine()) != null) {
             Files.write(Paths.get(dest), Collections.singleton(strLine), StandardOpenOption.APPEND);
