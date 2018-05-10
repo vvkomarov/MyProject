@@ -14,26 +14,26 @@ public class REF_UBPandNUBP {
         String sourcetwo = "C:/Users/vkomarov/Downloads/2.xml";
         int Count = 0;
 
-        for (int j = 1000; j < 1005; j++) {
-            String destinationFileName = "C:/Users/vkomarov/Downloads/Пакет/REF_UBPandNUBP_inc_20180507112846_11" + j + ".xml";
+        for (int j = 1130; j < 1131; j++) {
+            String destinationFileName = "C:/Users/vkomarov/Downloads/Пакет/REF_UBPandNUBP_inc_20180510112846_11" + j + ".xml";
             File dest = new File(destinationFileName);
             copyFileUsingJava7Files(source, dest);
             String a = "\n" + "<RecordNum>500000000320G" + j + "000</RecordNum>";
             Files.write(Paths.get(destinationFileName), Collections.singleton(a), StandardOpenOption.APPEND);
-            String c = "<ControlNum>0</ControlNum>";
+            String b = "<ControlNum>0</ControlNum>";
+            Files.write(Paths.get(destinationFileName), Collections.singleton(b), StandardOpenOption.APPEND);
+            String c = "<RegistryCode>G" + j + "</RegistryCode>";
             Files.write(Paths.get(destinationFileName), Collections.singleton(c), StandardOpenOption.APPEND);
-            String d = "<RegistryCode>G" + j + "</RegistryCode>";
+            String d = "<OrgCode>502G" + j + "</OrgCode>";
             Files.write(Paths.get(destinationFileName), Collections.singleton(d), StandardOpenOption.APPEND);
-            String f = "<OrgCode>502G" + j + "</OrgCode>";
+            String e = "<OrgOGRN>112510083" + j + "</OrgOGRN>";
+            Files.write(Paths.get(destinationFileName), Collections.singleton(e), StandardOpenOption.APPEND);
+            String f = "<OrgFullName>TO(Download)" + j + "</OrgFullName>";
             Files.write(Paths.get(destinationFileName), Collections.singleton(f), StandardOpenOption.APPEND);
-            String g = "<OrgOGRN>112510083" + j + "</OrgOGRN>";
+            String g = "<OrgINN>809010" + j + "</OrgINN>";
             Files.write(Paths.get(destinationFileName), Collections.singleton(g), StandardOpenOption.APPEND);
-            String h = "<OrgFullName>TO(Download)" + j + "</OrgFullName>";
+            String h = "<OrgKPP>81900" + j + "</OrgKPP>";
             Files.write(Paths.get(destinationFileName), Collections.singleton(h), StandardOpenOption.APPEND);
-            String p = "<OrgINN>809010" + j + "</OrgINN>";
-            Files.write(Paths.get(destinationFileName), Collections.singleton(p), StandardOpenOption.APPEND);
-            String k = "<OrgKPP>81900" + j + "</OrgKPP>";
-            Files.write(Paths.get(destinationFileName), Collections.singleton(k), StandardOpenOption.APPEND);
             writeFileUsingJava7Files(sourcetwo, destinationFileName);
             Count++;
             System.out.println("Сгенерировано " + Count + " файлов.");
@@ -55,7 +55,8 @@ public class REF_UBPandNUBP {
         BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(source), "UTF-8"));
         String strLine;
         while ((strLine = reader.readLine()) != null) {
-            Files.write(Paths.get(dest), Collections.singleton(strLine), StandardOpenOption.APPEND);
+            strLine += "\n";
+            Files.write(Paths.get(dest), strLine.getBytes("ISO-8859-5"), StandardOpenOption.APPEND);
         }
     }
 }
