@@ -19,19 +19,19 @@ public class Solution {
         public void swim();
     }
 
-    public class Dog implements Run, Swim {
+    public abstract class Dog implements Run, Swim {
 
     }
 
-    public class Fish implements Swim {
+    public abstract class Fish implements Swim {
 
     }
 
-    public class Bird implements Fly {
+    public abstract class Bird implements Fly {
 
     }
 
-    public class Airplane implements Fly {
+    public abstract class Airplane implements Fly {
 
     }
 
