@@ -22,12 +22,10 @@ public class Solution {
                 return imf;
             }
         }
-    }
 
-    private IMF() {
+        private IMF() {
+        }
     }
-
-}
 
     public static void main(String[] args) {
 
