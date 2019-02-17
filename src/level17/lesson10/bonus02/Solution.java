@@ -49,77 +49,85 @@ public class Solution {
         SimpleDateFormat format = new SimpleDateFormat("DD/mm/yyyy", Locale.ENGLISH);
         switch (args[0].toString()) {
             case "-c":
-                for (int i = 1; i < args.length; ) {
-                    name = args[i].toString();
-                    sex = args[i + 1].toString();
-                    bd = format.parse(args[i + 2].toString());
-                    if (sex.equals("м")) {
-                        allPeople.add(Person.createMale(name, bd));
-                        System.out.println("Добавлен " + name);
-                    } else if (sex.equals("ж")) {
-                        allPeople.add(Person.createFemale(name, bd));
-                        System.out.println("Добавлена " + name);
+                synchronized (allPeople) {
+                    for (int i = 1; i < args.length; i = i + 3) {
+                        name = args[i].toString();
+                        sex = args[i + 1].toString();
+                        bd = format.parse(args[i + 2].toString());
+                        if (sex.equals("м")) {
+                            allPeople.add(Person.createMale(name, bd));
+                            System.out.println("Добавлен " + name);
+                        } else if (sex.equals("ж")) {
+                            allPeople.add(Person.createFemale(name, bd));
+                            System.out.println("Добавлена " + name);
+                        }
+                        System.out.println("id добавленного человека " + (allPeople.size() - 1));
                     }
-                    System.out.println("id добавленного человека " + (allPeople.size() - 1));
-                    i = i + 3;
+                    break;
                 }
-                break;
             case "-u":
-                for (int i = 1; i < args.length; ) {
-                    id = Integer.parseInt(args[i]);
-                    name = args[i + 1].toString();
-                    sex = args[i + 2].toString();
-                    bd = format.parse(args[i + 3].toString());
-                    System.out.println("Данные до обновления : " + allPeople.get(id).getName() + " " + allPeople.get(id).getSex() + " " + allPeople.get(id).getBirthDay());
-                    allPeople.get(id).setName(name);
-                    if (sex.equals("м")) {
-                        allPeople.get(id).setSex(Sex.MALE);
-                    } else if (sex.equals("ж")) {
-                        allPeople.get(id).setSex(Sex.FEMALE);
+                synchronized (allPeople) {
+                    for (int i = 1; i < args.length; i = i + 4) {
+                        id = Integer.parseInt(args[i]);
+                        name = args[i + 1].toString();
+                        sex = args[i + 2].toString();
+                        bd = format.parse(args[i + 3].toString());
+                        System.out.println("Данные до обновления : " + allPeople.get(id).getName() + " " + allPeople.get(id).getSex() + " " + allPeople.get(id).getBirthDay());
+                        allPeople.get(id).setName(name);
+                        if (sex.equals("м")) {
+                            allPeople.get(id).setSex(Sex.MALE);
+                        } else if (sex.equals("ж")) {
+                            allPeople.get(id).setSex(Sex.FEMALE);
+                        }
+                        allPeople.get(id).setBirthDay(bd);
+                        System.out.println("Данные после обновления : " + allPeople.get(id).getName() + " " + allPeople.get(id).getSex() + " " + allPeople.get(id).getBirthDay());
                     }
-                    allPeople.get(id).setBirthDay(bd);
-                    System.out.println("Данные после обновления : " + allPeople.get(id).getName() + " " + allPeople.get(id).getSex() + " " + allPeople.get(id).getBirthDay());
-                    i = i + 4;
+                    break;
                 }
-                break;
             case "-d":
-                for (int j = 1; j < args.length; j++) {
-                    for (int k = j + 1; k < args.length; k++) {
-                        if (Integer.parseInt(args[k]) > Integer.parseInt(args[j])) {
-                            int temp = Integer.parseInt(args[k]);
-                            args[k] = args[j];
-                            args[j] = String.valueOf(temp);
+                synchronized (allPeople) {
+                    for (int j = 1; j < args.length; j++) {
+                        for (int k = j + 1; k < args.length; k++) {
+                            if (Integer.parseInt(args[k]) > Integer.parseInt(args[j])) {
+                                int temp = Integer.parseInt(args[k]);
+                                args[k] = args[j];
+                                args[j] = String.valueOf(temp);
+                            }
                         }
                     }
-                }
-                for (int i = 1; i < args.length; i++) {
-                    if (Integer.parseInt(args[i]) < allPeople.size()) {
-                        id = Integer.parseInt(args[i]);
-                        allPeople.remove(id);
-                        System.out.println("Запись о человеке с id " + id + " удалена");
-                    } else {
-                        System.out.println("Человек с id " + args[i] + " не найден");
-                    }
-                }
-                break;
-            case "-i":
-                for (int i = 1; i < args.length; i++) {
-                    if (Integer.parseInt(args[i]) < allPeople.size()) {
-                        id = Integer.parseInt(args[i]);
-                        Person person = allPeople.get(id);
-                        name = person.getName();
-                        bd = person.getBirthDay();
-                        if (person.getSex() == Sex.MALE) {
-                            sex = "м";
+                    for (int i = 1; i < args.length; i++) {
+                        if (Integer.parseInt(args[i]) < allPeople.size()) {
+                            id = Integer.parseInt(args[i]);
+                            allPeople.remove(id);
+                            System.out.println("Запись о человеке с id " + id + " удалена");
                         } else {
-                            sex = "ж";
+                            System.out.println("Человек с id " + args[i] + " не найден");
                         }
-                        System.out.println(name + " " + sex + " " + format.format(bd));
-                    } else {
-                        System.out.println("Человек с id " + args[i] + " не найден");
                     }
+                    break;
                 }
-                break;
+            case "-i":
+                synchronized (allPeople) {
+                    for (int i = 1; i < args.length; i++) {
+                        if (Integer.parseInt(args[i]) < allPeople.size()) {
+                            id = Integer.parseInt(args[i]);
+                            Person person = allPeople.get(id);
+                            name = person.getName();
+                            bd = person.getBirthDay();
+                            if (person.getSex() == Sex.MALE) {
+                                sex = "м";
+                            } else {
+                                sex = "ж";
+                            }
+                            System.out.println(name + " " + sex + " " + format.format(bd));
+                        } else {
+                            System.out.println("Человек с id " + args[i] + " не найден");
+                        }
+                    }
+                    break;
+                }
+            default:
+                throw new IllegalArgumentException();
         }
     }
 }

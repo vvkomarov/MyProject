@@ -73,7 +73,9 @@ public class Solution {
             case "-d":
                 id = Integer.parseInt(args[1]);
                 if (id < allPeople.size()) {
-                    allPeople.remove(id);
+                    allPeople.get(id).setName(null);
+                    allPeople.get(id).setBirthDay(null);
+                    allPeople.get(id).setSex(null);
                     System.out.println("Запись о человеке с id " + id + " удалена");
                 } else {
                     System.out.println("Человек с id " + id + " не найден");
@@ -95,6 +97,8 @@ public class Solution {
                     System.out.println("Человек с id " + id + " не найден");
                 }
                 break;
+            default:
+                throw new IllegalArgumentException();
         }
     }
 }
