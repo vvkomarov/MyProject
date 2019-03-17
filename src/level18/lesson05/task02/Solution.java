@@ -7,12 +7,16 @@ package level18.lesson05.task02;
         Подсказка: нужно сравнивать с ascii-кодом символа ','
 */
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.InputStreamReader;
 
 public class Solution {
 
     public static void main(String[] args) throws Exception {
-        FileInputStream fileInputStream = new FileInputStream("C:/Users/Admin/IdeaProjects/MyProject/src/level18/lesson05/task02/text.txt");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        FileInputStream fileInputStream = new FileInputStream(reader.readLine());
+        reader.close();
         int count = 0;
         while (fileInputStream.available() > 0) {
             if (fileInputStream.read() == (byte) ',') {

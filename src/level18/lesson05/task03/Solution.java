@@ -17,9 +17,9 @@ public class Solution {
 
     public static void main(String[] args) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        FileInputStream fileInputStream = new FileInputStream("C:\\Users\\Admin\\IdeaProjects\\MyProject\\src\\level18\\lesson05\\task03\\file1.txt");
-        FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\Admin\\IdeaProjects\\MyProject\\src\\level18\\lesson05\\task03\\file2.txt");
-        FileOutputStream fileOutputStream1 = new FileOutputStream("C:\\Users\\Admin\\IdeaProjects\\MyProject\\src\\level18\\lesson05\\task03\\file3.txt");
+        FileInputStream fileInputStream = new FileInputStream(reader.readLine());
+        FileOutputStream fileOutputStream = new FileOutputStream(reader.readLine());
+        FileOutputStream fileOutputStream1 = new FileOutputStream(reader.readLine());
         reader.close();
         while (fileInputStream.available() > 0) {
             byte[] buffer = new byte[fileInputStream.available()];
