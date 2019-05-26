@@ -9,8 +9,6 @@ package level15.lesson12.home03;
 4. В блоке 4 должен вызываться метод info(String s).
 */
 
-import java.math.BigDecimal;
-
 public class Solution {
 
     public static void main(String[] args) {

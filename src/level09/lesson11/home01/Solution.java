@@ -8,8 +8,6 @@ package level09.lesson11.home01;
 
 */
 
-import java.util.Random;
-
 public class Solution {
 
     public static void main(String[] args) {

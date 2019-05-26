@@ -6,7 +6,10 @@ package level13.lesson11.home03;
 3. Не забыть закрыть файл и поток.
 */
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class Solution2 {
 

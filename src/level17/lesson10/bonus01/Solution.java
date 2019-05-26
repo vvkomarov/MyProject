@@ -24,7 +24,10 @@ package level17.lesson10.bonus01;
         */
 
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 public class Solution {
     public static List<Person> allPeople = new ArrayList<Person>();

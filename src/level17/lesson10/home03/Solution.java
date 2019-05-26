@@ -8,8 +8,6 @@ package level17.lesson10.home03;
 Расставь synchronized там, где это необходимо
 */
 
-import jdk.nashorn.internal.ir.annotations.Ignore;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;

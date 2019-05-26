@@ -23,8 +23,6 @@ package level17.lesson10.bonus01;
         Пример параметров: -c Миронов м 15/04/1990
         */
 
-import jdk.nashorn.internal.runtime.regexp.joni.constants.Arguments;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;

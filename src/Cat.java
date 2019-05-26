@@ -1,16 +1,14 @@
-import java.util.Scanner;
-
 class Dog {
     int age;
     String name;
 
-    Dog () {
+    Dog() {
         age = 4;
     }
 
-    Dog (String a,int b){
-        name=a;
-        age=b;
+    Dog(String a, int b) {
+        name = a;
+        age = b;
     }
 
     protected void finalize() throws Throwable {
@@ -23,11 +21,11 @@ class Box {
     Dog dog;
 
     Double radius() {
-            return height;
+        return height;
     }
 
-    Double volume () {
-        return height*height*height;
+    Double volume() {
+        return height * height * height;
     }
 }
 

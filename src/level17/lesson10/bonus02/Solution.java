@@ -26,10 +26,10 @@ id соответствует индексу в списке
 Используйте Locale.ENGLISH в качестве второго параметра для SimpleDateFormat
 */
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 public class Solution {

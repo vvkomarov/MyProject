@@ -50,14 +50,14 @@ public class Solution {
         acc[5].setName("Vladimir");
         acc[5].setMoney(150000f);
 
-        for (int z = 0; z < acc.length;z++) {
+        for (int z = 0; z < acc.length; z++) {
             float currentmoney = acc[z].getMoney();
-            currentmoney = currentmoney + currentmoney*0.1f;
+            currentmoney = currentmoney + currentmoney * 0.1f;
             acc[z].setMoney(currentmoney);
         }
 
-        for (int z = 0; z < acc.length;z++) {
-            System.out.println("Name: "+ acc[z].getName()+ " Money: " + acc[z].getMoney());
+        for (int z = 0; z < acc.length; z++) {
+            System.out.println("Name: " + acc[z].getName() + " Money: " + acc[z].getMoney());
         }
     }
 }

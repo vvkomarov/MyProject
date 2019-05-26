@@ -10,7 +10,6 @@ package level18.lesson10.home02;
 */
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Solution {

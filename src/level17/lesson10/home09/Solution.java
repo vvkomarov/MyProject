@@ -12,7 +12,10 @@ package level17.lesson10.home09;
 Метод joinData должен вызываться в main. Все исключения обработайте в методе main.
 */
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 

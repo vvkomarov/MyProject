@@ -1,6 +1,5 @@
 package level16.lesson12.bonus01;
 
-import level16.lesson12.bonus01.ImageReaderFactory;
 import level16.lesson12.bonus01.common.ImageReader;
 import level16.lesson12.bonus01.common.ImageTypes;
 

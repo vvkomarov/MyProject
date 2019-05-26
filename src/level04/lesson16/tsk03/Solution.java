@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 Вводить с клавиатуры числа и считать их сумму. Если пользователь ввел -1, вывести на экран сумму и завершить программу. -1 должно учитываться в сумме.
  */
 public class Solution {
-    public static void main(String args[]) throws  Exception{
+    public static void main(String args[]) throws Exception {
         BufferedReader bd = new BufferedReader(new InputStreamReader(System.in));
         int k = 0;
         int j = 0;
