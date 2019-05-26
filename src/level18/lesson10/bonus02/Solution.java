@@ -24,12 +24,11 @@ id productName price quantity
 import java.io.*;
 
 public class Solution {
-    public static void main(String[] args) throws IOException, FileNotFoundException {
+    public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String fileName = reader.readLine();
         reader.close();
         FileOutputStream fileOutputStream = new FileOutputStream(fileName, true);
-        FileInputStream fileInputStream = new FileInputStream(fileName);
         switch (args[0].toString()) {
             case "-c":
                 int indexProduct = 1;
