@@ -50,6 +50,8 @@ public class Solution {
                 }
                 String result = String.format("%-8s%-30s%-8s%-4s", id, productName, price, count) + "\r\n";
                 fileOutputStream.write(result.getBytes());
+                fileOutputStream.close();
+                break;
         }
     }
 
@@ -60,20 +62,21 @@ public class Solution {
             String strLine;
             while ((strLine = reader.readLine()) != null) {
                 String identify = strLine.split(" ")[0];
-                if (id < Integer.parseInt(identify)) {
+                if (id <= Integer.parseInt(identify)) {
                     id = Integer.parseInt(identify);
                 }
             }
+            reader.close();
             return ++id;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            return id;
+            return ++id;
         } catch (NumberFormatException e) {
             e.printStackTrace();
-            return id;
+            return ++id;
         } catch (IOException e) {
             e.printStackTrace();
-            return id;
+            return ++id;
         }
     }
 }

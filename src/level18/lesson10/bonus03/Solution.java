@@ -36,11 +36,22 @@ public class Solution {
                 ArrayList<String> result = findAndUpdateByID(fileName, args);
                 FileOutputStream fileOutputStream = new FileOutputStream(fileName);
                 if (result.size() > 0) {
-                    for (int j = 0; j < result.size(); j++) {
-                        fileOutputStream.write((result.get(j) + "\r\n").getBytes());
+                    for (String b : result) {
+                        fileOutputStream.write((b + "\r\n").getBytes());
                     }
                 }
+                fileOutputStream.close();
+                break;
             case "-d":
+                ArrayList<String> result1 = findAndDeleteByID(fileName, args);
+                FileOutputStream fileOutputStream1 = new FileOutputStream(fileName);
+                if (result1.size() > 0) {
+                    for (String c : result1) {
+                        fileOutputStream1.write((c + "\r\n").getBytes());
+                    }
+                }
+                fileOutputStream1.close();
+                break;
         }
     }
 
@@ -52,6 +63,7 @@ public class Solution {
             list.add(str);
         }
 
+        reader.close();
         int index = arguments.length - 2;
         String productName = "";
         for (int j = 2; j < index; j++) {
@@ -61,6 +73,22 @@ public class Solution {
         for (int j = 0; j < list.size(); j++) {
             if (arguments[1].equals(list.get(j).split(" ")[0])) {
                 list.set(j, String.format("%-8s%-30s%-8s%-4s", arguments[1], productName, arguments[index], arguments[index + 1]));
+            }
+        }
+        return list;
+    }
+
+    public static ArrayList<String> findAndDeleteByID(String fileName, String[] arg) throws IOException {
+        ArrayList<String> list = new ArrayList<>();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));
+        String str;
+        while ((str = reader.readLine()) != null) {
+            list.add(str);
+        }
+        reader.close();
+        for (int j = 0; j < list.size(); j++) {
+            if (arg[1].equalsIgnoreCase(list.get(j).split(" ")[0])) {
+                list.remove(j);
             }
         }
         return list;
