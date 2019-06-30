@@ -86,8 +86,7 @@ public class Solution {
 
         @Override
         public String getDialString() {
-            return "callto://" + String.format("%s%s%s%s%s", this.contact.getPhoneNumber().substring(0, 3), this.contact.getPhoneNumber().substring(4, 7),
-                    this.contact.getPhoneNumber().substring(8, 11), this.contact.getPhoneNumber().substring(12, 14), this.contact.getPhoneNumber().substring(15, 17));
+            return "callto://+" + contact.getPhoneNumber().replaceAll("[\\D]", "");
         }
     }
 
