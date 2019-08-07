@@ -47,6 +47,7 @@ public class Solution {
             Person person = setPerson(name, birthday);
             PEOPLE.add(person);
         }
+        reader.close();
         getPeople();
     }
 

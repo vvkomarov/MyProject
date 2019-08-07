@@ -45,5 +45,6 @@ public class Solution {
             if (max.equals(k.getValue()))
                 System.out.println(k.getKey());
         }
+        reader.close();
     }
 }

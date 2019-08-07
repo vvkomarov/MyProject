@@ -45,5 +45,6 @@ public class Solution {
         for (Map.Entry<String, Double> k : map.entrySet()) {
             System.out.println(k.getKey() + " " + k.getValue());
         }
+        reader.close();
     }
 }
