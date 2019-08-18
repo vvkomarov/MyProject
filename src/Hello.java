@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Hello {
     public static void main(String args[]) {
+        int z = 0;
         int x, y;
         Scanner sc = new Scanner(System.in);
         x = sc.nextInt();
