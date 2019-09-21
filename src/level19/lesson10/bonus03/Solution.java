@@ -27,6 +27,8 @@ text1, text2 могут быть пустыми
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.parser.Parser;
 import org.jsoup.select.Elements;
 
 import java.io.BufferedReader;
@@ -44,8 +46,10 @@ public class Solution {
         while ((str = reader1.readLine()) != null) {
             result += str;
         }
+        reader1.close();
         Document document = Jsoup.parse(result);
         Elements elements = document.getElementsByTag(args[0]);
+        //Element elements = Jsoup.parse(result, args[0], Parser.xmlParser());
         System.out.println(elements);
     }
 }
