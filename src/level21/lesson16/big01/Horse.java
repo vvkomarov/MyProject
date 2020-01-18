@@ -15,11 +15,11 @@ public class Horse {
         return name;
     }
 
-    public int getSpeed() {
+    public double getSpeed() {
         return speed;
     }
 
-    public int getDistance() {
+    public double getDistance() {
         return distance;
     }
 
@@ -33,5 +33,15 @@ public class Horse {
 
     public void setDistance(double distance) {
         this.distance = distance;
+    }
+
+    public void move() {
+        int num = (int) Math.random();
+        speed = speed * num;
+        distance += speed;
+    }
+
+    public void print() {
+        System.out.println("<- лошадь " + name);
     }
 }
