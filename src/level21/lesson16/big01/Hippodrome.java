@@ -18,9 +18,9 @@ public class Hippodrome {
 
     public static void main(String[] args) throws InterruptedException {
         List<Horse> list = new ArrayList<>();
-        list.add(new Horse("Василёк", 3, 0));
-        list.add(new Horse("Плотва", 3, 0));
-        list.add(new Horse("Пингвин", 3, 0));
+        list.add(new Horse("Василёк", 4, 0));
+        list.add(new Horse("Плотва", 5, 0));
+        list.add(new Horse("Пингвин", 4, 0));
         game = new Hippodrome(list);
         game.run();
         game.printWinner();

@@ -36,7 +36,7 @@ public class Horse {
     }
 
     public void move() {
-        int num = (int) Math.random();
+        double num = Math.random();
         speed = speed * num;
         distance += speed;
     }
