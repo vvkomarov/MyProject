@@ -23,6 +23,11 @@ public class Solution {
         for (String k : b) {
             System.out.println(k);
         }
+
+        String[] strings = getTokens("Orange,Green,Yellow,Red", ",");
+
+        for (String s : strings)
+            System.out.println(s);
     }
 
     public static String[] getTokens(String query, String delimiter) {
